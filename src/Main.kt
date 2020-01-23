@@ -1,6 +1,7 @@
 import react.dom.*
 import kotlin.browser.document
-
+import kotlinx.css.*
+import styled.*
 
 fun main() {
 
@@ -36,11 +37,19 @@ fun main() {
 
 //        loops through list (buttons) and uses btns as arbritrary element name in loop
         for(btns in buttons) {
-            a{
-//              cannot currently add more than one attribute - not sure why
-                attrs {
-                    href = "${btns.href}"
+            styledA{
+                css {
+                    backgroundColor = Color.blue
+                    color = Color.white
+                    padding(vertical = 5.px, horizontal = 5.px)
+                    marginTop = 10.px
+                    marginLeft = 10.px
+                    borderRadius = 5.px
                 }
+
+                attrs.href = btns.href
+                attrs["id"] = "${btns.id}"
+
                 +"${btns.textCont}"
             }
         }
